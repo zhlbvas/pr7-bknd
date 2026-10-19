@@ -1,10 +1,9 @@
-
 const { MongoClient } = require("mongodb");
-require("dotenv").config();
+const path = require("path");
 
-if (!process.env.MONGODB_URI) {
-    throw new Error("Не задана переменная MONGODB_URI в файле .env");
-}
+require("dotenv").config({
+    path: path.join(__dirname, ".env")
+});
 
 const client = new MongoClient(process.env.MONGODB_URI);
 
